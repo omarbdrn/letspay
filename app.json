@@ -1,0 +1,170 @@
+{
+  "name": "LetsPay",
+  "description": "",
+  "scripts": {
+    "postdeploy":
+      "bundle exec rake db:migrate && bundle exec rails db:seed && npm rebuild node-sass --force && yarn build"
+  },
+  "environments": {
+    "test": {
+      "addons": ["heroku-postgresql"],
+      "buildpacks": [
+        {
+          "url": "heroku/nodejs"
+        },
+        {
+          "url": "heroku/ruby"
+        }
+      ],
+      "success_url": "/ping",
+      "env": {
+        "RACK_ENV": {
+          "value": "test"
+        },
+        "RAILS_ENV": {
+          "value": "test"
+        },
+        "RAILS_LOG_TO_STDOUT": {
+          "value": "true"
+        },
+        "RAILS_SERVE_STATIC_FILES": {
+          "value": "true"
+        },
+        "SECRET_KEY_BASE": {
+          "generator": "secret"
+        },
+        "ROLLBAR_ACCESS_TOKEN": {
+          "required": true
+        },
+        "MANGO_CLIENT_ID": {
+          "required": true
+        },
+        "MANGO_PASSPHRASE": {
+          "required": true
+        },
+        "MANGO_DASHBOARD_URL": {
+          "required": true
+        },
+        "LETSPAY_MANGO_WALLET_ID": {
+          "required": true
+        },
+        "QUOTAGUARDSTATIC_URL": {
+          "required": true
+        }
+      },
+      "scripts": {
+        "test": "bundle exec rspec -fd"
+      }
+    }
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_SLUG_COMMIT": {
+      "required": true
+    },
+    "NODE_MODULES_CACHE": "false",
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "AWS_BUCKET": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "CDN_URL": {
+      "required": true
+    },
+    "LOGENTRIES_TOKEN": {
+      "required": true
+    },
+    "FOREST_ENV_SECRET": {
+      "required": true
+    },
+    "FOREST_AUTH_SECRET": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "ROLLBAR_ACCESS_TOKEN": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    },
+    "SENDGRID_API_KEY": {
+      "required": true
+    },
+    "MANGO_CLIENT_ID": {
+      "required": true
+    },
+    "MANGO_PASSPHRASE": {
+      "required": true
+    },
+    "UPLOADCARE_PUBLIC_KEY": {
+      "required": true
+    },
+    "MANGO_DASHBOARD_URL": {
+      "required": true
+    },
+    "LETSPAY_MANGO_WALLET_ID": {
+      "required": true
+    },
+    "LETSPAY_MANGO_USER_ID": {
+      "required": true
+    },
+    "SEGMENT_IO_WRITE_KEY": {
+      "required": true
+    },
+    "MANGO_SYNC_ENABLED": {
+      "required": true
+    },
+    "LETSPAY_MANGO_WALLET_ID": {
+      "required": true
+    },
+    "LETSPAY_MANGO_USER_ID": {
+      "required": true
+    },
+    "MANGO_SYNC_ENABLED": {
+      "required": true
+    },
+    "WEBHOOK_MAX_RETRY_COUNT": {
+      "required": true
+    },
+    "QUOTAGUARDSTATIC_URL": {
+      "required": true
+    }
+  },
+  "success_url": "/ping",
+  "formation": {},
+  "addons": ["heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}

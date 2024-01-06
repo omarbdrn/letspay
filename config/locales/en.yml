@@ -1,0 +1,418 @@
+---
+en:
+  errors:
+    messages:
+      already_confirmed: was already confirmed
+      :_period_expired: has to be confirmed in %{period}, please ask for another
+      expired: is expired, please ask for another one
+      not_found: was not found
+      not_locked: was not locked
+      not_saved:
+        one: "this %{resource} was not saved because there was an error :"
+        other: "this %{resource} was not saved because of %{count} errors :"
+      invalid_iban: is not a valid IBAN
+  activerecord:
+    models:
+      merchant: Merchant
+      bank_account: Bank account
+    attributes:
+      bank_account:
+        iban: IBAN
+        bic: BIC
+        owner_name: Full name
+        owner_street: Address
+        owner_city: City
+        owner_region: Region
+        owner_zipcode: Zip code
+        owner_country: Country
+      merchant:
+         name: Name
+         api_key: Keys
+         site_url: Website URL
+         terms_url: Terms URL
+         default_locale: Language
+         picture_url: Logo
+         webhooks_url: Webhooks URL
+         pay_out_frequency: Pay out frequency
+         next_pay_out_date: Next pay out date
+         auto_redirect_to_merchant_url: Auto redirect to merchant url
+         multicard_letspayer_participation_round_in_hours: Maximum delay for letspayers payback (in hours)
+         multicard_leader_last_chance_round_in_hours: Maximum delay for payment of unpaid shares by the leader (in hours)
+         payout_summary_email: Pay out summary email
+  date:
+    formats:
+      simple: "%d/%m/%Y"
+      month_year: "%B %Y"
+  number:
+     currency:
+        format:
+          unit: '$'
+  global:
+    unauthorized: You are not authorized to perform this action
+  mailer:
+    share:
+      status:
+        paid: "Paid on %{paid_at}"
+        unpaid: Unpaid
+  merchants:
+    invoices:
+      index:
+        next_month: Next month
+        previous_month: Previous month
+        export_transactions: "Get invoice for %{month}"
+        merchant_reference: Merchant reference
+        date: Date
+        amount_vat: Amount (INC.VAT)
+        fees_vat: Fees (INC. VAT)
+        fees_vat_excl: Fees (EXC. VAT)
+        credited_funds: Credited funds
+        sum_invoice: "%{sum} $"
+        sum_amount: SUM CART
+        sum_fees: SUM FEES
+        sum_credited: SUM CREDITED FUND
+        no_tranfert: No transfer for this month.
+        vat: VAT on fees
+      form:
+        go_date: "Go to date"
+        choose_date: "Choose date : "
+    configurations:
+      edit:
+        merchant_profile: My Account
+        ticket_explanations: "Enter your email addresses to receive a purchases summary (date, purchase ID, merchant ref., amount, leader’s email address)."
+        payout_summary_explanations: "Enter your email address to receive a summary for each payment sent to your bank account."
+        auto_redirect_to_merchant_url:
+          active: Active
+          unactive: Inactive
+      menu:
+        API: Keys
+        bank_info: Bank account information
+        my_account: My account
+      update:
+        successful_update: Your profile has been updated
+        success: Your profile has been updated
+    api_keys:
+      show:
+        title: Keys
+        your_API_key: Your API key
+        your_secret_token: Your secret token
+    bank_accounts:
+      edit:
+        title: Bank account
+        submit: Submit
+      update:
+        successful_update: Your banking informations have been successfully updated.
+        failed_update: Your banking informations could not be saved.
+      create:
+        successful_update: Your banking informations have been successfully updated.
+        failed_update: Your banking informations could not be saved.
+    pay_outs:
+      index:
+        current_pay_outs_count:
+          one: "%{count} payment"
+          other: "%{count} payments"
+        execution_date: Date
+        status: Status
+        amount: Amount
+        mango_id: Mangopay ID
+        status: Status
+        reason: Reason
+        code: Mango code
+        success: Your account is updated.
+        failure: Your account could not be updated.
+        mango_statuses:
+          succeeded: succeeded
+          created: Created
+          failed: Error
+        execution_delay_warning: Payments can take up to 2 working days to be processed.
+    purchases:
+      index:
+        amount: Amount
+        client: Client
+        current_purchase_count:
+          one: "%{count} Transaction"
+          other: "%{count} Transactions"
+        date: Date
+        letspayers: LetsPayers
+        purchases: Transactions
+        reference: Reference
+        result: T/O
+        search_label: Login
+        search_placeholder: Enter email, reference or product
+        search_submit: Search
+        see_details: Detail
+        state: Status
+        helpers:
+          submit:
+            submit: Search
+        title: Product
+        filter_buttons:
+          all: ALL
+          successful: SUCCESSFUL
+          cancelled: CANCELLED
+          refunded: REFUNDED
+          waiting_merchant_validation: WAITING VALIDATION
+      show:
+        amount: Amount
+        client: Client
+        current_purchase_count:
+          one: "%{count} Transaction"
+          other: "%{count} Transactions"
+        date: Date
+        letspayers: LetsPayers
+        purchases: Transactions
+        reference: Reference
+        result: T/O
+        search_label: Login
+        search_placeholder: Enter email, reference or product
+        search_submit: Search
+        state: Status
+        helpers:
+          submit:
+            submit: Search
+        title: Product
+        refunded_amount: Reimbursed Amount
+        type: Type
+        email: Email
+        first_name: First Name
+        last_name: Last Name
+        role: Role
+        paid_or_preauthorized_at: Paid/ Pre-authorised on
+        status: Status
+        reason: Reason
+        code: Mango code
+        mango_id: MangoPay ID
+        purchase: Transaction
+        back: Back
+        max_refund_percent: "% of refund (maximum %{percent})"
+        partial_refund_purchase: Partially refund this transaction
+        full_refund_transaction: Refund this transaction
+        force_pre_auth_execution: Process preauthorisation
+        are_you_sure_refund: Are you sure you want to refund this transaction?
+        are_you_sure_cancel: Are you sure you want to cancel this purchase?
+        are_you_sure_confirm: Are you sure you want to confirm this purchase?
+        not_enough_to_refund: Insufficient amount to refund this transaction. Please contact LetsPay customer service using the chat window in the bottom right corner of your screen.
+        confirm_purchase: Confirm (multicard mode)
+        confirm_purchase_partially_successful: Confirm (link mode)
+        cancel_purchase: Cancel this purchase
+      refund:
+        refund_successful: The refund was successful.
+        refund_failed: The refund failed.
+      cancel:
+        cancel_successful: The purchase was successfully cancelled.
+        cancel_failed: The cancellation failed.
+      confirm:
+        confirm_successful: The purchase was successfully confirmed.
+        confirm_failed: The confirmation failed.
+    shared:
+      header:
+        configuration: Settings
+        logout: Logout
+        profile: Account
+        purchases: Transactions
+        invoices: Statements history
+        pay_outs: Payments
+  purchase_mailer:
+    confirmation:
+      all_friends_paid: "Everyone paid their share of your purchase on %{merchant_name}!"
+      some_fiends_paid:
+        one: "1 co-payer out of %{letspayers_count} paid his share of your purchase on %{merchant_name}"
+        other: "%{count} co-payers out of %{letspayers_count} paid their share of your purchase on %{merchant_name}"
+      details: "Here is the recap of the co-payers' payments :"
+      explanation1: "This amount will be debited on your card today."
+      explanation2: "If some of the co-payers did not pay back yet, please contact them so they can reimburse you directly."
+      greetings: "Hello %{full_name},"
+      intro_letspay:  "We asked all the co-payers to pay their share of the purchase you paid with LetsPay on the %{date}."
+      intro_white_label:  "We asked all the co-payers to pay their share of the purchase you made on the %{date}."
+      presentation_html: "LetsPay is a service offered free of charge by %{merchant_name} in order to facilitate group purchases.<br>There is no additional cost for you and the co-payers."
+      remaining: "You still have to pay : %{amount}"
+      you: "You"
+      table:
+        labels:
+          letspayer: "Person"
+          amount: "Amount"
+          status: "Status"
+      thank_you_letspay: "Thanks and see you soon on LetsPay!"
+      thank_you_white_label: "Thanks and see you soon!"
+    leader_confirmation_multicard:
+      subject: "Your payment is confirmed"
+      greetings: "Hi %{full_name},"
+      intro:  "Your purchase on %{merchant_name} is now completed. You've just paid %{leader_paid_amount_cent}."
+      details: "You will find below the detail of the amounts you paid for the other co-payers:"
+      table:
+        labels:
+          letspayer: "Person"
+          amount: "Amount"
+      thank_you: "Thanks and see you soon on LetsPay!"
+    confirmation_multicard:
+      all_friends_paid: "All co-payers have now paid their share of your group purchase on %{merchant_name}!"
+      some_fiends_did_not_pay: "The amount of %{remaining_amount} is still outstanding on %{merchant_name}"
+      details: "Here are the payments completed so far:"
+      explanation1_multicard: "Your share and the co-payers' shares will be debited today."
+      explanation3_multicard: "Some of the co-payers have not paid their shares, as a result your group purchase is cancelled."
+      greetings: "Hi %{full_name},"
+      intro:  "We have now sent a notification email with a payment link to all co-payers following your group purchase via LetsPay on %{date}"
+      presentation_html: "LetsPay is a service offered free of charge by %{merchant_name} in order to facilitate group purchases.<br>There is no additional cost for you and the co-payers."
+      you: "You"
+      table:
+        labels:
+          letspayer: "Person"
+          amount: "Amount"
+          status: "Status"
+      thank_you: "Thanks and see you soon on LetsPay!"
+    reminder_multicard:
+      some_fiends_paid:
+        one: "1 co-payer out of %{letspayers_count} paid their share of your group purchase on %{merchant_name}"
+        other: "%{count} co-payers out of %{letspayers_count} paid their shares of your group purchase on %{merchant_name}"
+      some_fiends_did_not_pay: "The amount of %{remaining_amount} is still outstanding on %{merchant_name}"
+      greetings: "Hi %{full_name},"
+      intro:  "We have now sent a notification email with a payment link to all co-payers following your group purchase via LetsPay on %{date}."
+      details: "Here are the payments completed so far:"
+      you: "You"
+      table:
+        labels:
+          letspayer: "Person"
+          amount: "Amount"
+          status: "Status"
+      explanation2_multicard: "As some of the co-payers have not paid their share in the time allowed, you can now pay for them by clicking the button below. Otherwise, the purchase will be cancelled in %{multicard_leader_last_chance_round_in_hours}h."
+      cta: "Pay outstanding amount"
+      thank_you: "Thanks and see you soon on LetsPay!"
+    validation:
+      subject: "Your purchase on %{merchant_name} is successfull!"
+      details: "Here are the details of the purchase:"
+      explanation1_html: "The co-payers can pay their share until <strong>%{date}</strong>. After that, your card will be debited of your share(<strong>%{amount}</strong>), and of the shares left to pay."
+      explanation2: "Please remind the co-payers to pay their share."
+      explanation3: "We will keep you posted with each new payment on LetsPay."
+      greetings: "Hello %{email}"
+      intro1_letspay: "Thanks for using LetsPay to pay on %{merchant_name}."
+      intro1_white_label: "Thanks for sharing your payment on %{merchant_name}."
+      intro2: "We just informed the co-payers of your purchase and we asked them to pay their share."
+      sharing_details: "Here are the details of your purchase:"
+      table:
+        leader: "You"
+        labels:
+          letspayer: "People"
+          amount: "Amount"
+      thank_you: "Thanks and see you soon on LetsPay!"
+      total_amount: "Total amount : %{amount}"
+    validation_multicard:
+      subject: "Your group purchase on %{merchant_name} is now completed!"
+      details: "You will find below the details of the group payment:"
+      explanation1_multicard_html: "The co-payers have until <strong>%{date}</strong> to pay their share. If a co-payer does not pay their share in the time allowed, you will be able to pay for their outstanding share within %{multicard_leader_last_chance_round_in_hours}h."
+      explanation2: "Fill free to remind the co-payers to pay their share in the meantime - as we will :-) "
+      explanation3: "You will be notified after each payment made by a co-payer."
+      greetings: "Hi %{email}"
+      intro1: "Thanks for using LetsPay on %{merchant_name}."
+      intro2: "The co-payers have now received a notification email with a payment link. "
+      sharing_details: "Here is the details of your group purchase:"
+      table:
+        leader: "You"
+        labels:
+          letspayer: "Person"
+          amount: "Amount"
+      thank_you: "Thanks for using LetsPay!"
+      total_amount: "Total amount : %{amount}"
+  share_mailer:
+    leader_paid_for_you:
+      subject: "%{first_name} paid your share of your group purchase on %{merchant_name}"
+      greetings: "Hi %{full_name},"
+      intro:  "Your share of %{share_amount} for the group purchase on %{merchant_name} was paid by %{leader_first_name}."
+      details: ""
+      thank_you: "Thanks and see you soon on LetsPay!"
+    reminder:
+      subject: "Your friend is waiting for your contribution"
+      be_nice_html: "After that, your friend will pay for your share.<br>Please remember to pay your share :-) "
+      cta: "Pay my share now"
+      details: "Here are the details of the purchase :"
+      expiration_notice_html: "You can pay your share of the purchase made by %{leader_email}} until <strong>%{date}</strong>."
+      greetings: "Hi %{email},"
+      intro1_letspay_html: "Gentle reminder: %{leader_email} made a purchase of %{amount} on %{merchant_name}, with LetsPay. <strong>Your share is still outstanding.</strong>"
+      intro1_white_label_html: "Gentle reminder: %{leader_email} made a purchase of %{amount} on %{merchant_name}. <strong>Your share is still outstanding.</strong>"
+      intro1_letspay_txt: "Gentle reminder: %{leader_email} made a purchase of %{amount} on %{merchant_name}, with LetsPay."
+      intro1_white_label_txt: "Gentle reminder: %{leader_email} made a purchase of %{amount} on %{merchant_name}."
+      intro2: "Please remember to pay your share :-) "
+      presentation_html: "LetsPay is a service offered free of charge by %{merchant_name} in order to facilitate group purchases.<br>There is no additional cost for you and the co-payers."
+      share_amount: "Your share : %{amount}"
+      total_amount: "Total amount : %{amount}"
+    reminder_multicard:
+      subject: "Your friend is waiting for your contribution"
+      be_nice_multicard_html: "After the time allowed has elapsed, he will pay your share. Alternatively the group purchase will be cancelled."
+      cta: "Pay my share now"
+      details: "Here are the details of the purchase:"
+      expiration_notice_html: "You can pay your share of the purchase made by %{leader_email} until <strong>%{date}</strong>."
+      greetings: "Hi %{email},"
+      intro1_html: "Gentle reminder: %{leader_email} made a purchase of %{amount} on %{merchant_name}, with LetsPay. <strong>Your share is still outstanding."
+      intro2: "Please pay your share by clicking the button below"
+      be_nice_html: "Please remember to pay your share :-) "
+      presentation_html: "LetsPay is a service offered free of charge by %{merchant_name} in order to facilitate group purchases.<br>There is no additional cost for you and the co-payers."
+      share_amount: "Your share : %{amount}"
+      total_amount: "Total amount : %{amount}"
+    invitation:
+      subject: "Your friend wants to share a payment with you on %{merchant_name}"
+      be_nice_html: "After that, your share will be debited on his card."
+      cta: "Pay my share now"
+      details: "Here are the details of the purchase:"
+      expiration_notice_html: "You can pay your share of the purchase made by %{full_name} until the <strong>%{date}</strong>."
+      greetings: "Hello,"
+      how_to_html: "It is easy to pay your share with LetsPay.<br> Just click on the button below."
+      intro_letspay: "%{full_name} just made a purchase on %{merchant_name}, and chose to use LetsPay to share the payment with you."
+      intro_white_label: "%{full_name} just made a purchase on %{merchant_name}, and shared the payment with you."
+      presentation_html: "LetsPay is a service offered free of charge by %{merchant_name} in order to facilitate group purchases.<br>There is no additional cost for you and the co-payers."
+      share_amount: "Your share : %{amount}"
+      total_amount: "Total amount : %{amount}"
+      your_turn: "Please remember to pay your share :-) "
+    invitation_multicard:
+      subject: "Payment on %{merchant_name}"
+      be_nice_multicard_html: "After the time allowed has elapsed, %{leader_first_name} will pay your share. Alternatively the group purchase will be cancelled."
+      cta: "Pay my share now"
+      details: "Here are the details of the purchase:"
+      greetings: "Hello,"
+      how_to_html: "It is easy to pay your share with LetsPay.<br> Just click on the button below."
+      intro: "%{full_name} just made a purchase on %{merchant_name}, and chose to use LetsPay to share the payment with you."
+      expiration_notice: "You have until %{date} to pay your share."
+      presentation_html: "LetsPay is a service offered free of charge by %{merchant_name} in order to facilitate group purchases.<br>There is no additional cost for you and the co-payers."
+      share_amount: "Your share: %{amount}"
+      total_amount: "Total amount: %{amount}"
+      your_turn: "Please remember to pay your share :-) "
+    validation:
+      subject: 'Thanks for your contribution!'
+      details: "Here are the details of the purchase:"
+      greetings: "Hello %{first_name},"
+      intro_letspay: "Thanks for paying your share of the purchase made by %{leader_full_name} on %{merchant_name} with LetsPay!"
+      intro_white_label: "Thanks for paying your share of the purchase made by %{leader_full_name} on %{merchant_name}!"
+      paid_at: "Paid on %{date}"
+      share_amount: "Your share : %{amount}"
+      thank_you: "Thanks and see you soon on LetsPay!"
+      total_amount: "Total amount : %{amount}"
+    validation_multicard:
+      subject: 'Thank you for your contribution!'
+      details: "Here are the details of the purchase:"
+      greetings: "Hi %{first_name},"
+      intro: "Thanks for paying your share of the purchase made by %{leader_full_name} on %{merchant_name} with LetsPay!"
+      intro_single_share: "Thanks for paying your purchase on %{merchant_name} with LetsPay!"
+      paid_at: "Paid on %{date}"
+      share_amount: "Your share : %{amount}"
+      share_amount_single_share: "Amount : %{amount}"
+      thank_you: "Thanks and see you soon on LetsPay!"
+      total_amount: "Total amount : %{amount}"
+    multicard_failed:
+      subject: "%{merchant_name} : The time to validate your purchase has expired"
+      greetings: "Hi,"
+      intro: "At least one co-payer have not paid their share to validate your purchase on %{merchant_name}."
+      explanation: "Your group purchase is now cancelled. Nobody will be debited."
+      call_to_retry: "Try again later and remember to pay in the time allowed 😉"
+      thank_you: "Thanks and see you soon on LetsPay!"
+  time:
+    time_of: "%{city} Time"
+    formats:
+      simple: "%d/%m/%Y at %R"
+  views:
+    pagination:
+      previous: « Previous
+      next: Next »
+      truncate: …
+  enumerize:
+    merchant:
+      pay_out_frequency:
+        daily: Daily
+        weekly: Weekly
+        monthly: Monthly

@@ -1,0 +1,1 @@
+LOGGER_LETSPAY = Hash.new

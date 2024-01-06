@@ -1,0 +1,50 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'scripts/**/*'
+    - 'Guardfile'
+    - 'Gemfile*'
+    - 'node_modules/**/*'
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 35
+  Exclude:
+    - 'spec/support/page_objects/**/*'
+Metrics/BlockLength:
+  ExcludedMethods:
+    - 'configure'
+    - 'describe'
+    - 'context'
+    - 'included'
+Metrics/LineLength:
+  Max: 180
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 30
+  Exclude:
+    - 'spec/support/fake_request_builder/**/*'
+Style/Documentation:
+  Enabled: false
+Style/RegexpLiteral:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': ()
+    '%I': ()
+    '%r': '{}'
+    '%w': ()
+    '%W': ()
+Style/AsciiComments:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

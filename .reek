@@ -1,0 +1,37 @@
+IrresponsibleModule:
+  enabled: false
+DuplicateMethodCall:
+  max_calls: 2
+LongParameterList:
+  max_params: 5
+"app/controllers/api":
+  UncommunicativeModuleName:
+    enabled: false
+"app/controllers/api/helpers":
+  UtilityFunction:
+    enabled: false
+"app/controllers/api/merchants/v1/helpers":
+  UtilityFunction:
+    enabled: false
+"app/helpers":
+  UtilityFunction:
+    enabled: false
+"db/migrate":
+  TooManyStatements:
+    enabled: false
+"lib/ext/grape/middleware":
+  InstanceVariableAssumption:
+    enabled: false
+"spec/support/page_objects":
+  TooManyStatements:
+    enabled: false
+"spec/support/fake_request_builder":
+  UncommunicativeModuleName:
+    enabled: false
+  DuplicateMethodCall:
+    enabled: false
+  UtilityFunction:
+    enabled: false
+exclude_paths:
+  - db/migrate
+  - node_modules
